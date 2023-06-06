@@ -3,50 +3,62 @@ package modelos;
 import java.util.ArrayList;
 import java.util.List;
 
+import controles.ControleLogin;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Pedido {
 	
-	@SuppressWarnings("unused")
-	private static Integer novoCodigo = 1;
+	
+	private static Pedido emMemoria;	
 	
 	public enum Status{
 		ABERTO,
 		CONCLUIDO,
 		CANCELADO
 	}
-	
-	private Integer codigo; 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private double valorTotal;
-	private Usuario vendedor;
-	private Cliente cliente;
-	private List<Produto> produtos;
 	private Status status;
+	private int pontos;
+	
+	@ManyToOne
+	private Usuario vendedor;
+	
+	@ManyToOne
+	private Cliente cliente;
+	
+	@OneToMany
+	private List<Mercadoria> mercadorias;
 	
 	public Pedido() {
 		this.setStatus(Status.ABERTO);
-		//this.codigo = função .getNovoId;		
-		//this.vendedor = ControleDeAcesso.usuarioLogado;
-		this.produtos = new ArrayList<>();
+		this.vendedor = ControleLogin.usuarioLogado;
+		this.mercadorias = new ArrayList<>();		
 		this.valorTotal = 0;
 	}
 	
-	public Pedido( Usuario vendedor) {
+	public Pedido(Usuario vendedor) {
 		this();
-		this.vendedor = vendedor;	
+		this.vendedor = vendedor;
 	}
 	
-	public Pedido(Integer codigo, Usuario vendedor) {
-		this();
-		this.codigo = codigo;
-		this.vendedor = vendedor;
-	}	
-
-	public Integer getCodigo() {
-		return codigo;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
 	}
+
+	
 	public double getValorTotal() {
 		return valorTotal;
 	}
@@ -71,22 +83,27 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 	
-	public void adicionar(Produto produto) {
-		this.valorTotal =+ produto.getPreco();
-		this.produtos.add(produto);
+	public void adicionar(Mercadoria mercadoria) {
+		this.valorTotal =+ mercadoria.getPreco();
+		this.mercadorias.add(mercadoria);
 	}
 	
-	public void remover(Produto produto) {
-		this.valorTotal =- produto.getPreco();
-		this.produtos.remove(produto);
+	public void remover(Mercadoria mercadoria) {
+		this.valorTotal =- mercadoria.getPreco();
+		this.mercadorias.remove(mercadoria);
+	}
+	
+	public int adicionarPontos() {
+		pontos =+ mercadoria.getPonto();
+		return pontos;
+	}
+	
+	public List<Mercadoria> getMercadorias() {
+		return mercadorias;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void setMercadorias(List<Mercadoria> mercadorias) {
+		this.mercadorias = mercadorias;
 	}
 
 	public Status getStatus() {
@@ -99,8 +116,8 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "Pedido [codigo=" + codigo + ", status =" + status + ", vendedor=" + vendedor + ", cliente="
-				+ cliente + ", produtos=" + produtos + ", valor total =" + valorTotal + "]";
+		return "Pedido [codigo=" + id + ", status =" + status + ", vendedor=" + vendedor + ", cliente="
+				+ cliente + ", produtos=" + mercadorias + ", valor total =" + valorTotal + "]";
 	}
 	
 	

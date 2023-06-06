@@ -4,16 +4,16 @@ public class Mercadoria extends Produto{
 	
 	public String marca;
 	public double preco;
-	public int pontos;
+	
 	
 	public Mercadoria() {
 		
 	}
-	public Mercadoria(String codigo, String nome int pontos ) {
-		super(codigo, nome, pontos);
+	public Mercadoria(String codigo, String nome ) {
+		super(codigo, nome);
 	}
 	
-	public Mercadoria(String codigo, String nome, String marca, double preco, int pontos) {
+	public Mercadoria(String codigo, String nome, int pontos, String marca, double preco) {
 		super(codigo, nome, pontos);
 		this.marca = marca;
 		this.preco = preco;
