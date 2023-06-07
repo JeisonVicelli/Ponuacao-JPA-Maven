@@ -4,7 +4,7 @@ public class Cliente extends Pessoa {
 	
 	public String dataNascimento;
 	public String tefefone;
-	public String pontos;
+	public int pontos;
 	
 	public Cliente() {		
 	}
@@ -14,7 +14,7 @@ public class Cliente extends Pessoa {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cliente(String nome, String CPF, String dataNascimento, String tefefone, String pontos) {
+	public Cliente(String nome, String CPF, String dataNascimento, String tefefone, int pontos) {
 		super(nome, CPF);
 		this.dataNascimento = dataNascimento;
 		this.tefefone = tefefone;
@@ -37,11 +37,11 @@ public class Cliente extends Pessoa {
 		this.tefefone = tefefone;
 	}
 
-	public String getPontos() {
+	public int getPontos() {
 		return pontos;
 	}
 
-	public void setPontos(String pontos) {
+	public void setPontos(int pontos) {
 		this.pontos = pontos;
 	}
 
