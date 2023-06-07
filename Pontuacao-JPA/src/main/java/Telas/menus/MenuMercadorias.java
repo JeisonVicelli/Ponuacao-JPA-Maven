@@ -9,13 +9,13 @@ import modelos.Mercadoria;
 import util.Mensagem;
 import util.Prompt;
 
-/*public class MenuMercadorias extends Menu {
+public class MenuMercadorias extends Menu {
 		
 		private ControleMercadoria cadastro = ControleMercadoria.getInstance();
 		
 		public MenuMercadorias() {
 			
-			Comando listarMercadorias = new Comando() {
+			final Comando listarMercadorias = new Comando() {
 				public void executar() {
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.MSG_LISTA_DE_PRODUTOS);
@@ -31,7 +31,7 @@ import util.Prompt;
 					
 					Prompt.linhaEmBranco();
 					Prompt.pressionarEnter();
-					TelaCadastros.mostrarTelaCadastroMercadoria();
+					TelaCadastros.mostrarTelaCadastroMercadorias();
 				}
 			};
 			
@@ -41,11 +41,14 @@ import util.Prompt;
 				public void executar() {
 					Prompt.linhaEmBranco();
 					Prompt.imprimir(Mensagem.MSG_INCLUSAO_PRODUTO);
+					String codigo = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
 					String nome = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
+					int pontos = Prompt.lerInteiro("Informe pontos");
+					String marca = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
 					Double preco = Prompt.lerDecimal(Mensagem.MSG_INFORME_PRECO);
 					
 					if (!nome.isEmpty()) {
-						cadastro.adicionar(new Mercadoria(nome, preco));
+						cadastro.salvar(new Mercadoria(codigo, nome, pontos, marca, preco));
 						
 						Prompt.linhaEmBranco();
 						Prompt.pressionarEnter();
@@ -61,18 +64,23 @@ import util.Prompt;
 					Long id = (long) Prompt.lerInteiro(Mensagem.MSG_INFORME_ID);
 					
 					if (id > 0) {
-						Produto produtoAlterar = cadastro.buscar(id);
+						Mercadoria mercadoriaAlterar = cadastro.buscar(id);
 					
-						if (produtoAlterar != null) {
+						if (mercadoriaAlterar != null) {
+							String codigo = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
 							String nome = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
+							int pontos = Prompt.lerInteiro("Informe pontos");
+							String marca = Prompt.lerLinha(Mensagem.MSG_INFORME_NOME);
 							Double preco = Prompt.lerDecimal(Mensagem.MSG_INFORME_PRECO);
 							
 							if (!nome.isEmpty()) {		
-								produtoAlterar.setId(id); 
-								produtoAlterar.setNome(nome);
-								produtoAlterar.setPreco(preco);
+								mercadoriaAlterar.setCodigo(codigo); 
+								mercadoriaAlterar.setNome(nome);
+								mercadoriaAlterar.setPreco(pontos);
+								mercadoriaAlterar.setMarca(marca);
+								mercadoriaAlterar.setPreco(preco);
 								
-								cadastro.atualizar(produtoAlterar);
+								cadastro.atualizar(mercadoriaAlterar);
 			
 								Prompt.linhaEmBranco();
 								Prompt.imprimir(Mensagem.MSG_PRODUTO_ALTERADO);
@@ -84,7 +92,7 @@ import util.Prompt;
 						Prompt.linhaEmBranco();
 						Prompt.pressionarEnter();
 					}
-					listarProdutos.executar();
+					listarMercadorias.executar();
 				}
 			});
 			
@@ -102,17 +110,17 @@ import util.Prompt;
 						Prompt.linhaEmBranco();
 						Prompt.pressionarEnter();
 					}
-					listarProdutos.executar();
+					listarMercadorias.executar();
 				}
 			});
 			
 			adicionar(5, Mensagem.MENU_VOLTAR, new Comando() {
 				public void executar() {
-					TelaDeCadastros.getInstance().mostrar();			
+					TelaCadastros.getInstance().mostrar();			
 				}
 			});
 		}
 	}
 
 
-}
+

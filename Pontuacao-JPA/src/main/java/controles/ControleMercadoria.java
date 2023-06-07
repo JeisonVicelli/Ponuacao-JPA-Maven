@@ -3,6 +3,7 @@ package controles;
 import java.util.List;
 
 import daos.DAO;
+import daos.MercadoriaDAO;
 import modelos.Mercadoria;
 import modelos.Produto;
 
@@ -32,7 +33,7 @@ public class ControleMercadoria {
 		dao.atualizar(mercadoria);
 	}
 	
-	public Produto buscar(Long id) {
+	public Mercadoria buscar(Long id) {
 		return dao.buscarPorId(id);
 	}
 	

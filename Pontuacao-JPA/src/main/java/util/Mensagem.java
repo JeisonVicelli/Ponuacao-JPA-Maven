@@ -138,4 +138,6 @@ final static String TELA_CADASTRO_DE_CLIENTES = "CADASTRO DE CLIENTES";
 
 	static final String MSG_INFORME_PRECO = "Informe Preço do Produto";
 
+	static final String MSG_INFORME_ID = "Informe codigo do produto";
+
 }

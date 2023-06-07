@@ -15,7 +15,7 @@ public class MenuCadastros extends Menu {
 			}
 		});
 		
-		adicionar(2, Mensagem.MENU_CADASTRO_DE_CLIENTES, new Comando() {
+		/*adicionar(2, Mensagem.MENU_CADASTRO_DE_CLIENTES, new Comando() {
 			public void executar() {
 				TelaCadastros.mostrarTelaDeCadastroDeClientes();			
 			}
@@ -23,9 +23,9 @@ public class MenuCadastros extends Menu {
 		
 		adicionar(3, Mensagem.MENU_CADASTRO_DE_USUARIOS, new Comando() {
 			public void executar() {
-				TelaCadastros.mostrarTelaDeCadastroDeUsuarios();			
+				TelaCadastros.mostrarTelaDeCadastroDeUsuarios();		
 			}
-		});
+		});*/
 		
 		adicionar(4, Mensagem.MENU_VOLTAR, new Comando() {
 			public void executar() {

@@ -2,6 +2,7 @@ package controles;
 
 import java.util.List;
 
+import daos.BrindeDAO;
 import daos.DAO;
 import modelos.Brinde;
 

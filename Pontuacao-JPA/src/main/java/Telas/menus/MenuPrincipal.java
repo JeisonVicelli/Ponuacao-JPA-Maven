@@ -20,7 +20,7 @@ public class MenuPrincipal extends Menu {
 			}
 		});
 		
-		adicionar(2, Mensagem.MENU_CONTROLE_PEDIDOS, new Comando() {
+		/*adicionar(2, Mensagem.MENU_CONTROLE_PEDIDOS, new Comando() {
 			public void executar() {
 				TelaDePedidos.getInstance().mostrar();
 			}
@@ -30,7 +30,7 @@ public class MenuPrincipal extends Menu {
 			public void executar() {
 				TelaDeVendas.getInstance().mostrar();
 			}
-		});
+		});*/
 		
 		adicionar(4, Mensagem.MENU_SAIR, new Comando() {	
 			public void executar() {

@@ -9,8 +9,8 @@ public class TelaCadastros extends Tela {
 
 	private static Tela instance;
 	private static Tela instanceMercadorias;
-	private static Tela instanceClientes;
-	private static Tela instanceUsuarios;
+	//private static Tela instanceClientes;
+	//private static Tela instanceUsuarios;
 	private static Tela instanceBrindes;
 
 	private TelaCadastros(String titulo, Menu menu) {
@@ -24,14 +24,14 @@ public class TelaCadastros extends Tela {
 		return instance;
 	}
 
-	public static synchronized void mostrarTelaCadastroMercadoria() {
+	public static synchronized void mostrarTelaCadastroMercadorias() {
 		if (instanceMercadorias == null) {
 			instanceMercadorias = new TelaCadastros(Mensagem.TELA_CADASTRO_DE_PRODUTOS, new MenuMercadorias());
 		}
 		instanceMercadorias.mostrar();
 	}
 
-	public static synchronized void mostrarTelaDeCadastroDeClientes() {
+	/*public static synchronized void mostrarTelaDeCadastroDeClientes() {
 		if (instanceClientes == null) {
 			instanceClientes = new TelaCadastros(Mensagem.TELA_CADASTRO_DE_CLIENTES, new MenuClientes());
 		}
@@ -44,12 +44,12 @@ public class TelaCadastros extends Tela {
 		}
 		instanceUsuarios.mostrar();
 	}
-	
-	public static synchronized void mostrarTelaCadastroBrindes() {
+	*/
+	/*public static synchronized void mostrarTelaCadastroBrindes() {
 		if (instanceBrindes == null) {
 			instanceBrindes = new TelaCadastros(Mensagem.TELA_CADASTRO_DE_USUARIOS, new MenuBrindes());
 		}
 		instanceUsuarios.mostrar();
-	}
+	}*/
 }
 

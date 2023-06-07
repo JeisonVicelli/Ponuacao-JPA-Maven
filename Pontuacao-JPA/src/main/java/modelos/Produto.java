@@ -12,8 +12,7 @@ public class Produto {
 	public Produto(String codigo, String nome, int pontos) {
 		super();
 		this.codigo = codigo;
-		this.nome = nome;
-	
+		this.nome = nome;	
 		this.pontos = pontos;
 	}
 

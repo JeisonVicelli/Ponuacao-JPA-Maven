@@ -12,14 +12,14 @@ public class CargaInicial {
 	
 public static void rodar() {
 		
-		DAO<Cliente> daoCliente = new ClienteDAO();
+		/*DAO<Cliente> daoCliente = new ClienteDAO();
 		Cliente cliente = daoCliente.salvar(new Cliente("Pedro", "123456","22/12/2000", "(41)998765546", 100));
 		daoCliente.salvar(new Cliente("Ana", "123455", "30/01/2016", "(41)987657890", 3));
 		
 		DAO<Usuario> daoUsuario = new UsuarioDAO();
 		Usuario usuario = daoUsuario.salvar(new Usuario("Jeison", "04716350908","jeisonvicelli@gmail.com", "senha"));
 		daoUsuario.salvar(new Usuario("Gabriel","12312312312", "gabrielcesaro@hotmail.com","senha"));
-		daoUsuario.salvar(new Usuario("Paulo Victor","23423423423","victorpam9@hotmail.com", "senha"));
+		daoUsuario.salvar(new Usuario("Paulo Victor","23423423423","victorpam9@hotmail.com", "senha"));*/
 
 		DAO<Mercadoria> daoMercadoria = new MercadoriaDAO();
 		Mercadoria merc1 = daoMercadoria.salvar(new Mercadoria("1", "Jaqueta", 100, "Volcom", 299.90));
@@ -36,13 +36,13 @@ public static void rodar() {
 		Brinde brin4 = daoBrinde.salvar(new Brinde("4","Camiseta", 100));
 		Brinde brin5 = daoBrinde.salvar(new Brinde("5","Bone", 150));
 
-		DAO<Pedido> daoPedido = new PedidoDAO();
+		/*DAO<Pedido> daoPedido = new PedidoDAO();
 		Pedido pedido = new Pedido(usuario);
 		pedido.setCliente(cliente);
 		pedido.adicionar(merc1);
 		pedido.adicionar(merc2);
 		pedido.setStatus(Status.CONCLUIDO);
-		daoPedido.salvar(pedido);
+		daoPedido.salvar(pedido);*/
 	}
 
 
